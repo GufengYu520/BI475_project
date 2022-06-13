@@ -12,12 +12,12 @@ import util
 
 # params
 seed = 88
-epochs = 200
-batch_size = 1
+epochs = 100
+batch_size = 16
 lr = 0.001
 weight_decay = 5e-4
 dropout = 0.05
-device = 'cpu'
+device = 'cuda'
 
 def same_seed(seed):
     torch.manual_seed(seed)
@@ -29,7 +29,11 @@ def same_seed(seed):
 same_seed(seed)
 
 # Model and optimizer
-model = R3DModel(dropout=dropout).to(device)
+type = 'r2plus1d'
+model = R3DModel(dropout=dropout, type=type).to(device)
+from torch.nn import DataParallel
+if type == 'r2plus1d':
+    model = DataParallel(model)
 
 optimizer = optim.Adam(model.parameters(),
                        lr=lr, weight_decay=weight_decay)
@@ -132,7 +136,7 @@ def main():
 
             # 保存
             model_max.eval()
-            torch.save(model_max, './output/models/model' + str(epoch) + '_' + str(max_acc) + '.pth')
+            torch.save(model_max, './output/models/model' + type + str(epoch) + '_' + str(max_acc) + '.pth')
 
     writer.close()
 

@@ -1,5 +1,5 @@
 # BI475_project
-This project is the final project of course BI475. We use models and methods such as R(2+1)D to classify children's exercise intensity based on short videos. Actually, this project is a video classification problem in video understanding in the context of biomedicine.
+This project is the final project of course BI475. We use models and methods such as R(2+1)D[^1] to classify children's exercise intensity based on short videos. Actually, this project is a video classification problem in video understanding in the context of biomedicine.
 
 ## Environment
 
@@ -69,4 +69,4 @@ You may also encounter memory problems here, and the solution is the same as abo
 
 ## Reference
 
-[^ 1]: Tran, Du, et al. "A closer look at spatiotemporal convolutions for action recognition." *Proceedings of the IEEE conference on Computer Vision and Pattern Recognition*. 2018.
+[^1]: Tran, Du, et al. "A closer look at spatiotemporal convolutions for action recognition." *Proceedings of the IEEE conference on Computer Vision and Pattern Recognition*. 2018.
